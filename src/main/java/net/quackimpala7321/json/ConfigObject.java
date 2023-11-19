@@ -129,7 +129,7 @@ public class ConfigObject extends ConfigElement<JsonObject> implements JsonConve
     }
 
     @Override
-    void setValue(JsonObject value) {}
+    public void setValue(JsonObject value) {}
 
     public Map<String, ConfigElement<?>> getJsonMap() {
         return this.jsonMap;

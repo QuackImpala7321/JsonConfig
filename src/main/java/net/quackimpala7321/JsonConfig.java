@@ -68,6 +68,42 @@ public class JsonConfig implements JsonConvertible {
         this.root.setParent(this);
     }
 
+    public boolean getBoolean(String path) {
+        return ((BooleanConfigElement) this.getValue(path)).getValue();
+    }
+
+    public Number getNumber(String path) {
+        return ((NumberConfigElement) this.getValue(path)).getValue();
+    }
+
+    public int getInt(String path) {
+        return this.getNumber(path).intValue();
+    }
+
+    public long getLong(String path) {
+        return this.getNumber(path).longValue();
+    }
+
+    public float getFloat(String path) {
+        return this.getNumber(path).floatValue();
+    }
+
+    public double getDouble(String path) {
+        return this.getNumber(path).doubleValue();
+    }
+
+    public byte getByte(String path) {
+        return this.getNumber(path).byteValue();
+    }
+
+    public short getShort(String path) {
+        return this.getNumber(path).shortValue();
+    }
+
+    public String getString(String path) {
+        return ((StringConfigElement) this.getValue(path)).getValue();
+    }
+
     public ConfigElement<?> getValue(String path) {
         final String[] paths = path.split(String.format("\\%c", this.delimiter));
 

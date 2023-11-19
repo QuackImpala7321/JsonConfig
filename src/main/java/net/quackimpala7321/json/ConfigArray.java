@@ -131,5 +131,10 @@ public class ConfigArray extends ConfigElement<JsonArray>{
     }
 
     @Override
-    void setValue(JsonArray value) { }
+    public void setValue(JsonArray value) { }
+
+    @Override
+    public String toString() {
+        return this.getValue().toString();
+    }
 }

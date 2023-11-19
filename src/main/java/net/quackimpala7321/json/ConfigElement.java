@@ -9,6 +9,22 @@ public abstract class ConfigElement<T> {
         this.setValue(value);
     }
 
-    abstract T getValue();
-    abstract void setValue(T value);
+    public abstract T getValue();
+    public abstract void setValue(T value);
+
+    public boolean getAsBoolean() {
+        return ((BooleanConfigElement) this).getValue();
+    }
+
+    public NumberConfigElement getAsNumberElement() {
+        return ((NumberConfigElement) this);
+    }
+
+    public String getAsString() {
+        return ((StringConfigElement) this).getValue();
+    }
+
+    public ConfigArray getAsArray() {
+        return (ConfigArray) this;
+    }
 }
