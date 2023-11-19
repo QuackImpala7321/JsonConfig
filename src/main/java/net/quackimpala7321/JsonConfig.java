@@ -40,12 +40,13 @@ public class JsonConfig implements JsonConvertible {
 
     public void load() {
         try (FileReader reader = new FileReader(this.file)) {
+            System.out.println();
             this.setRoot( ConfigObject.fromJsonObject(JsonParser.parseReader(reader).getAsJsonObject()) );
             reader.close();
 
             this.resolveMissingContents();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            this.setRoot(this.defaultRoot);
         }
     }
 
