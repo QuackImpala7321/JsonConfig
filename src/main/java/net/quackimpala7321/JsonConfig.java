@@ -43,7 +43,10 @@ public class JsonConfig implements JsonConvertible {
             this.setRoot( ConfigObject.fromJsonObject(JsonParser.parseReader(reader).getAsJsonObject()) );
             reader.close();
 
+            final String prevString = this.toString();
             this.resolveMissingContents();
+            if (!this.toString().equals(prevString))
+                this.save();
         } catch (IOException e) {
             this.setRoot(this.defaultRoot);
         }
