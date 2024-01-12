@@ -63,7 +63,8 @@ public class JsonConfig implements JsonConvertible {
     }
 
     public void setRoot(ConfigObject root) {
-        this.root.setParent(null);
+        if (this.root != null)
+            this.root.setParent(null);
         this.root = root;
         this.root.setParent(this);
     }
