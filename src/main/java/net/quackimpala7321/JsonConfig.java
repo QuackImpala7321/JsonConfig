@@ -40,7 +40,6 @@ public class JsonConfig implements JsonConvertible {
 
     public void load() {
         try (FileReader reader = new FileReader(this.file)) {
-            System.out.println();
             this.setRoot( ConfigObject.fromJsonObject(JsonParser.parseReader(reader).getAsJsonObject()) );
             reader.close();
 
@@ -64,6 +63,7 @@ public class JsonConfig implements JsonConvertible {
     }
 
     public void setRoot(ConfigObject root) {
+        this.root.setParent(null);
         this.root = root;
         this.root.setParent(this);
     }
